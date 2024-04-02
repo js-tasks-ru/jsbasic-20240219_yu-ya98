@@ -27,13 +27,18 @@ export default class StepSlider {
     sliderSteps.querySelector('span').classList.add('slider__step-active');
 
     let progress = slider.querySelector('.slider__progress');
-    progress.style.width = '0';
 
     let thumb = slider.querySelector('.slider__thumb');
 
     this.thumb = thumb;
     this.progress = progress;
     this.elem = slider;
+  }
+
+  initialPosition() {
+    let initialThumbPosition = ((this.elem.offsetWidth / this.elem.offsetWidth) / (this.steps - 1)) * this.value * 100;
+    this.progress.style.width = `${initialThumbPosition}%`;
+    this.thumb.style.left = `${initialThumbPosition}%`;
   }
 
   fixedPosition(event) {
