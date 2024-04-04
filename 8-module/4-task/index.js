@@ -191,6 +191,10 @@ export default class Cart {
         let newPrice = cartItem.product.price * cartItem.count;
         let infoPrice = this.modalBody.querySelector(`.cart-buttons__info-price`);
 
+        if (cartItem.count === 0) {
+          this.modalBody.querySelector(`[data-product-id="${productId}"]`).remove();
+        }
+
         productCount.innerHTML = `${cartItem.count}`;
         productPrice.innerHTML = `€${newPrice.toFixed(2)}`;
         infoPrice.innerHTML = `€${this.getTotalPrice().toFixed(2)}`;
