@@ -54,8 +54,6 @@ export default class ProductGrid {
       this.filters.category = filters.category;
     }
 
-    console.log(this.filters);
-
     // Копируем полный список продуктов в массив отфильтрованных продуктов
     this.productsFiltered = this.products;
 
@@ -74,8 +72,6 @@ export default class ProductGrid {
         this.productsFiltered = this.productsFiltered.filter(product => product.category === this.filters.category);
       }
     }
-
-    console.log(this.productsFiltered);
 
     // Отрисовываем только отфильтрованные продукты
     this.elem.querySelector('.products-grid__inner').innerHTML = '';
